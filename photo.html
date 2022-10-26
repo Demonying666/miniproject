@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/photo.css">
+    <title>Photographs</title>
+</head>
+<body> 
+  
+    <div class="img-slider">
+        <div class="slide active">
+          <img src="images/1.jpg" alt="">
+          <div class="info">
+            <h2>Kamut Katiw Tatto Convention Maasin</h2>
+            <p>Jam, Beer, Meet and Greet. Very enjoyable day and also my way of supporting local artists.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/2.jpg" alt="">
+          <div class="info">
+            <h2>Skateboarding Competition</h2>
+            <p>A competition that brought OG's back together just for one day... Cheers.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/3.jpg" alt="">
+          <div class="info">
+            <h2>Opening Day (SK sports fest)</h2>
+            <p>On the sidelines with the gang, waiting for the show to start...</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/4.jpg" alt="">
+          <div class="info">
+            <h2>Crashing a kids' party </h2>
+            <p>A small reunion with my cousins. The food was good, the conversations were great. What more could you ask?</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/5.jpg" alt="">
+          <div class="info">
+            <h2>Bump into someone</h2>
+            <p>My long lost piece of sh*t friend....Those days.</p>
+          </div>
+        </div>
+        <div class="slide">
+            <img src="images/6.jpg" alt="">
+            <div class="info">
+              <h2>Holloween party</h2>
+              <p>Costume?? Well I'm a common criminal..How's that for an effortless costume?</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/11.jpg" alt="">
+            <div class="info">
+              <h2>My arsenal</h2>
+              <p>This is where all the magic happens</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/8.jpg" alt="">
+            <div class="info">
+              <h2>Blank slate</h2>
+              <p>Ran out of things to do?.... Wack it then!!!!</p>
+            </div>
+        </div>
+         <div class="slide">
+            <img src="images/9.jpg" alt="">
+            <div class="info">
+              <h2>Well deserved</h2>
+              <p>Not bad for wimpy kid... I would like to thanks my sponsor "Frenzy Condom".</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/10.jpg" alt="">
+            <div class="info">
+              <h2>My foundation</h2>
+              <p>This is my unequivocal support on this planet. Cheers to these guys!!</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+          <div class="btn active"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+        </div>
+      </div>
+      <div class="back">
+        <a href="front.html">
+            <button type="button">Lobby</button>
+         </a>
+
+    </div>
+  
+      <script type="text/javascript">
+      var slides = document.querySelectorAll('.slide');
+      var btns = document.querySelectorAll('.btn');
+      let currentSlide = 1;
+  
+      // Javascript for image slider manual navigation
+      var manualNav = function(manual){
+        slides.forEach((slide) => {
+          slide.classList.remove('active');
+  
+          btns.forEach((btn) => {
+            btn.classList.remove('active');
+          });
+        });
+  
+        slides[manual].classList.add('active');
+        btns[manual].classList.add('active');
+      }
+  
+      btns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          manualNav(i);
+          currentSlide = i;
+        });
+      });
+  
+      // Javascript for image slider autoplay navigation
+      var repeat = function(activeClass){
+        let active = document.getElementsByClassName('active');
+        let i = 1;
+  
+        var repeater = () => {
+          setTimeout(function(){
+            [...active].forEach((activeSlide) => {
+              activeSlide.classList.remove('active');
+            });
+  
+          slides[i].classList.add('active');
+          btns[i].classList.add('active');
+          i++;
+  
+          if(slides.length == i){
+            i = 0;
+          }
+          if(i >= slides.length){
+            return;
+          }
+          repeater();
+        }, 10000);
+        }
+        repeater();
+      }
+      repeat();
+      </script>
+      <div class="logo">
+        <img src="images/logo2.png" class="logo">
+      </div>
+</body>
+</html>
